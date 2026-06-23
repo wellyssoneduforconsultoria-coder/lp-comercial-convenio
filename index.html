@@ -492,6 +492,16 @@
 </footer>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const empresaParam = params.get('empresa');
+    if (empresaParam) {
+      const campoEmpresa = document.getElementById('empresa');
+      campoEmpresa.value = empresaParam;
+      campoEmpresa.readOnly = true;
+    }
+  });
+
   function enviarFormulario() {
     const nome = document.getElementById('nome').value.trim();
     const tel = document.getElementById('telefone').value.trim();
